@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração das variáveis
+    char estado[50];
+    char cidade[50];
+    char codigo[9];
+    float populacao;
+    float area;
+    float pib;
+    int pontos_turisticos;
+
+    // Atribuições dos dados
+    snprintf(estado, sizeof(estado), "São Paulo");
+    snprintf(cidade, sizeof(cidade), "São Paulo");
+    snprintf(codigo, sizeof(codigo), "01");
+    populacao = 12325232.0;       // 12.325.232 habitantes
+    area = 1521.10;               // km²
+    pib = 829.0;                  // bilhões
+    pontos_turisticos = 10;
+
+    // Impressão dos dados
+    printf("\n--- DADOS DA CIDADE ---\n");
+    printf("Estado: %s\n", estado);
+    printf("Cidade: %s\n", cidade);
+    printf("População: %.0f\n", populacao);
+    printf("Área: %.2f km²\n", area);
+    printf("PIB: %.2f bilhões\n", pib);
+    printf("Número de pontos turísticos: %d\n", pontos_turisticos);
+    printf("Código da carta: %s\n", codigo);
+
+    return 0;
+}
