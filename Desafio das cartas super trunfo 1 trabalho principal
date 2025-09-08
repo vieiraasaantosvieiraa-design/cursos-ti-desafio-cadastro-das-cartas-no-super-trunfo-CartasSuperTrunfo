@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração das variáveis da Carta 1
+    char estado1[50] = "São Paulo";
+    char cidade1[50] = "São Paulo";
+    char codigo1[9] = "01";
+    float populacao1 = 8818.0;
+    float area1 = 1521.10;
+    float pib1 = 610.0;
+    int pontos_turisticos1 = 10;
+
+    // Declaração das variáveis da Carta 2
+    char estado2[50] = "Distrito Federal";
+    char cidade2[50] = "Brasília";
+    char codigo2[9] = "06";
+    float populacao2 = 11818.0;
+    float area2 = 5760.78;
+    float pib2 = 829.0;
+    int pontos_turisticos2 = 16;
+
+    // Impressão das cartas
+    printf("\n--- CARTA 1 ---\n");
+    printf("Estado: %s\n", estado1);
+    printf("Cidade: %s\n", cidade1);
+    printf("População: %.0f\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: %.2f bilhões\n", pib1);
+    printf("Pontos turísticos: %d\n", pontos_turisticos1);
+    printf("Código: %s\n", codigo1);
+
+    printf("\n--- CARTA 2 ---\n");
+    printf("Estado: %s\n", estado2);
+    printf("Cidade: %s\n", cidade2);
+    printf("População: %.0f\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: %.2f bilhões\n", pib2);
+    printf("Pontos turísticos: %d\n", pontos_turisticos2);
+    printf("Código: %s\n", codigo2);
+
+    // Comparações
+    printf("\n--- COMPARAÇÃO DOS ATRIBUTOS ---\n");
+
+    int pontos1 = 0, pontos2 = 0;
+
+    // População
+    (populacao1 > populacao2) ? (printf("População: Carta 1 venceu\n"), pontos1++) :
+    (populacao1 < populacao2) ? (printf("População: Carta 2 venceu\n"), pontos2++) :
+    printf("População: Empate\n");
+
+    // Área
+    (area1 > area2) ? (printf("Área: Carta 1 venceu\n"), pontos1++) :
+    (area1 < area2) ? (printf("Área: Carta 2 venceu\n"), pontos2++) :
+    printf("Área: Empate\n");
+
+    // PIB
+    (pib1 > pib2) ? (printf("PIB: Carta 1 venceu\n"), pontos1++) :
+    (pib1 < pib2) ? (printf("PIB: Carta 2 venceu\n"), pontos2++) :
+    printf("PIB: Empate\n");
+
+    // Pontos turísticos
+    (pontos_turisticos1 > pontos_turisticos2) ? (printf("Pontos turísticos: Carta 1 venceu\n"), pontos1++) :
+    (pontos_turisticos1 < pontos_turisticos2) ? (printf("Pontos turísticos: Carta 2 venceu\n"), pontos2++) :
+    printf("Pontos turísticos: Empate\n");
+
+    // Densidade populacional (menor vence)
+    float densidade1 = populacao1 / area1;
+    float densidade2 = populacao2 / area2;
+
+    (densidade1 < densidade2) ? (printf("Densidade Populacional: Carta 1 venceu\n"), pontos1++) :
+    (densidade1 > densidade2) ? (printf("Densidade Populacional: Carta 2 venceu\n"), pontos2++) :
+    printf("Densidade Populacional: Empate\n");
+
+    // Super Poder (soma ponderada dos atributos principais + bônus da densidade)
+    float super_poder1 = populacao1 + area1 + pib1 + pontos_turisticos1 + (1.0 / densidade1);
+    float super_poder2 = populacao2 + area2 + pib2 + pontos_turisticos2 + (1.0 / densidade2);
+
+    if (super_poder1 > super_poder2) {
+        printf("Super Poder: Carta 1 venceu\n");
+        pontos1++;
+    } else if (super_poder1 < super_poder2) {
+        printf("Super Poder: Carta 2 venceu\n");
+        pontos2++;
+    } else {
+        printf("Super Poder: Empate\n");
+    }
+
+    // Mostrar valores dos Super Poderes
+    printf("\n--- SUPER PODERES ---\n");
+    printf("Carta 1: %.2f\n", super_poder1);
+    printf("Carta 2: %.2f\n", super_poder2);
+
+    // Resultado final
+    printf("\n--- RESULTADO FINAL ---\n");
+    printf("Placar -> Carta 1: %d | Carta 2: %d\n", pontos1, pontos2);
+
+    (pontos1 > pontos2) ? printf("🏆 Carta 1 é a vencedora!\n") :
+    (pontos2 > pontos1) ? printf("🏆 Carta 2 é a vencedora!\n") :
+    printf("⚖️ O jogo terminou em empate!\n");
+
+    return 0;
+}
